@@ -1,0 +1,14 @@
+{% extends 'getinfo/main_template.html' %}
+{% block title %} Sign-Up {% endblock %}
+{% block content %}
+<div class = "head container-fluid">
+    <h1>Form</h1>
+</div>
+<div class = "form container">
+    <form action="/form/" method="post">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" class = "btn-primary" value="Submit">
+    </form>
+</div>
+{% endblock %}
