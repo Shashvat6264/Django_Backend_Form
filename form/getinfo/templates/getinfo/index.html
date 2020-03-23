@@ -1,14 +1,83 @@
 {% extends 'getinfo/main_template.html' %}
-{% block title %} Sign-Up {% endblock %}
+{% block title %} Form {% endblock %}
 {% block content %}
-<div class = "head container-fluid">
+<div class = "page-header">
     <h1>Form</h1>
 </div>
-<div class = "form container">
+<div class = "container">
     <form action="/form/" method="post">
         {% csrf_token %}
-        {{ form.as_ul }}
-        <input type="submit" class = "btn-primary" value="Submit">
+        <!-- {% for field in form %}
+        <p>
+            {{ field.errors }}
+            {{ field }}
+            <label for="{{ field.id_for_label }}">
+                <span>{{ field.label }}</span>
+            </label>
+        </p>
+        {% endfor %} -->
+        <table>
+            <tr>
+                <td>
+                    {{ form.name.errors}}
+                    {{ form.name }}
+                    <label for="{{ form.name.id_for_label }}">
+                        <span>{{ form.name.label }}</span>
+                    </label>
+                </td>
+                <td>
+                    {{ form.email.errors}}
+                    {{ form.email }}
+                    <label for="{{ form.email.id_for_label }}">
+                        <span>{{ form.email.label }}</span>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ form.roll.errors}}
+                    {{ form.roll }}
+                    <label for="{{ form.roll.id_for_label }}">
+                        <span>{{ form.roll.label }}</span>
+                    </label>
+                </td>
+                <td>
+                    {{ form.contact.errors}}
+                    {{ form.contact }}
+                    <label for="{{ form.contact.id_for_label }}">
+                        <span>{{ form.contact.label }}</span>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="{{ form.hall.id_for_label }}">
+                        <span>{{ form.hall.label }}</span>
+                    </label>
+                </td>
+                <td>
+                    {{ form.hall.errors }}
+                    {{ form.hall }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="{{ form.exp.id_for_label }}">
+                       <span>{{ form.exp.label }}</span>
+                    </label>
+                </td>
+                <td>
+                    {{ form.exp.errors }}
+                    {{ form.exp }}
+                </td>
+            </tr>
+        </table>
+    <input type="submit" class = "btn-primary" value="Submit">
     </form>
 </div>
+<div class = "footer">
+    <p>~By Shashvat Gupta <br>Follow me on <a href = "https://github.com/Shashvat6264">GitHub</a></p>
+</div>
 {% endblock %}
+
+
